@@ -13,7 +13,7 @@ type User struct {
 }
   
 func main() {
-    dbURL := "postgres://postgres:changeme@localhost:5432/gorm"
+    dbURL := "postgres://postgres:123456@localhost:5432/gorm"
     db, err := gorm.Open(postgres.Open(dbURL), &gorm.Config{})
 
 	if err != nil {

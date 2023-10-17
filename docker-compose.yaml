@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  user:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    tty:
+      true
+    depends_on: 
+      - user_db
+  user_db:
+    image: postgres:14.9-alpine
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: gorm
+      POSTGRES_HOST: user_db
+    ports:
+      - 9920:9920
